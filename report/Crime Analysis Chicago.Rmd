@@ -1,0 +1,14 @@
+---
+title: "Chicago Crime Analysis"
+output: 
+  html_document: 
+    fig_height: 7
+    fig_width: 10
+    theme: sandstone
+    toc: yes
+---
+## Data Import 
+```{r}
+
+```
+
