@@ -6,9 +6,44 @@ output:
     fig_width: 10
     theme: sandstone
     toc: yes
+runtime: shiny
 ---
+## Library Import 
+```{r, echo=FALSE}
+library(data.table)
+library(DT)
+```
+
 ## Data Import 
+```{r} 
+# chicago 2001 to 2004
+chicago2001_2004 <- data.table(read.csv("/home/milan/Documents/MachineLearning/R-workspace/Kaggle/Crimes-in-Chicago/data/Chicago_Crimes_2001_to_2004.csv"))
+# chicago 2005 to 2007
+chicago2005_2007 <- data.table(read.csv("/home/milan/Documents/MachineLearning/R-workspace/Kaggle/Crimes-in-Chicago/data/Chicago_Crimes_2005_to_2007.csv"))
+# chicago 2008 to 2011
+chicago2008_2011 <- data.table(read.csv("/home/milan/Documents/MachineLearning/R-workspace/Kaggle/Crimes-in-Chicago/data/Chicago_Crimes_2008_to_2011.csv"))
+# chicago 2012 to 2017
+chicago2012_2017 <- data.table(read.csv("/home/milan/Documents/MachineLearning/R-workspace/Kaggle/Crimes-in-Chicago/data/Chicago_Crimes_2012_to_2017.csv"))
+```
+
 ```{r}
+str(chicago2001_2004)
 
 ```
+
+
+
+
+```{r, echo=FALSE}
+selectInput("data", "", 
+c("co2", "lh")) 
+
+
+renderPlot({ 
+  d <- get(input$data) 
+  plot(d) 
+}) 
+```
+
+
 
